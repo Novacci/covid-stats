@@ -1,5 +1,12 @@
 $font-color: white;
 
 h1 {
+  display: flex;
+  color: $font-color;
+  justify-content: center;
+}
+h3 {
+  display: flex;
+  justify-content: center;
   color: $font-color;
 }
