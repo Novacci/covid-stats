@@ -1,9 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './Header/Header';
 
 function App() {
-  return <>siema</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
