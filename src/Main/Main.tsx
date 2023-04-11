@@ -4,6 +4,15 @@ import StatsTable from '../Table/StatsTable';
 
 const Main = () => {
   const [summaryArray, setSummaryArray] = useState([]);
+  const [globalSummary, setGlobalSummary] = useState({
+    Date: '',
+    NewConfirmed: 0,
+    NewDeaths: 0,
+    NewRecovered: 0,
+    TotalConfirmed: 0,
+    TotalDeaths: 0,
+    TotalRecovered: 0,
+  });
 
   useEffect(() => {
     getCovidDailySummary();
@@ -19,6 +28,11 @@ const Main = () => {
       });
       const data = await response.json();
       console.log(data);
+
+      if (data) {
+        setSummaryArray(data.Countries);
+        setGlobalSummary(data.Global);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +40,7 @@ const Main = () => {
 
   return (
     <>
-      <StatsTable />
+      <StatsTable summaryArray={summaryArray} globalSummary={globalSummary} />
     </>
   );
 };
