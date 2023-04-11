@@ -1,3 +1,4 @@
+import './StatsTable.scss';
 import {
   Table,
   TableContainer,
@@ -6,7 +7,9 @@ import {
   TableRow,
   TableCell,
   Paper,
+  TablePagination,
 } from '@material-ui/core';
+import { StylesProvider } from '@material-ui/core/styles';
 
 interface CountrySummary {
   Country: string;
@@ -39,47 +42,75 @@ interface StatsTableProps {
 const StatsTable = (props: StatsTableProps) => {
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>#</TableCell>
-              <TableCell>Country/Global</TableCell>
-              <TableCell>Total Cases</TableCell>
-              <TableCell>New Cases</TableCell>
-              <TableCell>Total Deaths</TableCell>
-              <TableCell>New Deaths</TableCell>
-              <TableCell>Total Recovered</TableCell>
-              <TableCell>New Recovered</TableCell>
-              <TableCell>Population</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>{1}</TableCell>
-              <TableCell>{'Global'}</TableCell>
-              <TableCell>{props.globalSummary.TotalConfirmed}</TableCell>
-              <TableCell>{props.globalSummary.NewConfirmed}</TableCell>
-              <TableCell>{props.globalSummary.TotalDeaths}</TableCell>
-              <TableCell>{props.globalSummary.NewDeaths}</TableCell>
-              <TableCell>{props.globalSummary.TotalRecovered}</TableCell>
-              <TableCell>{props.globalSummary.NewRecovered}</TableCell>
-            </TableRow>
-            {props.summaryArray.map((countrySummary, index) => (
-              <TableRow key={index}>
-                <TableCell>{index + 2}</TableCell>
-                <TableCell>{countrySummary.Country}</TableCell>
-                <TableCell>{countrySummary.TotalConfirmed}</TableCell>
-                <TableCell>{countrySummary.NewConfirmed}</TableCell>
-                <TableCell>{countrySummary.TotalDeaths}</TableCell>
-                <TableCell>{countrySummary.NewDeaths}</TableCell>
-                <TableCell>{countrySummary.TotalRecovered}</TableCell>
-                <TableCell>{countrySummary.NewRecovered}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <StylesProvider injectFirst>
+        <div className="table-position">
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>#</TableCell>
+                  <TableCell>Country/Global</TableCell>
+                  <TableCell>Total Cases</TableCell>
+                  <TableCell>New Cases</TableCell>
+                  <TableCell>Total Deaths</TableCell>
+                  <TableCell>New Deaths</TableCell>
+                  <TableCell>Total Recovered</TableCell>
+                  <TableCell>New Recovered</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell>{1}</TableCell>
+                  <TableCell>{'Global'}</TableCell>
+                  <TableCell>
+                    {props.globalSummary.TotalConfirmed.toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {props.globalSummary.NewConfirmed.toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {props.globalSummary.TotalDeaths.toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {props.globalSummary.NewDeaths.toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {props.globalSummary.TotalRecovered.toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {props.globalSummary.NewRecovered.toLocaleString()}
+                  </TableCell>
+                </TableRow>
+                {props.summaryArray.map((countrySummary, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{index + 2}</TableCell>
+                    <TableCell>{countrySummary.Country}</TableCell>
+                    <TableCell>
+                      {countrySummary.TotalConfirmed.toLocaleString()}
+                    </TableCell>
+                    <TableCell>
+                      {countrySummary.NewConfirmed.toLocaleString()}
+                    </TableCell>
+                    <TableCell>
+                      {countrySummary.TotalDeaths.toLocaleString()}
+                    </TableCell>
+                    <TableCell>
+                      {countrySummary.NewDeaths.toLocaleString()}
+                    </TableCell>
+                    <TableCell>
+                      {countrySummary.TotalRecovered.toLocaleString()}
+                    </TableCell>
+                    <TableCell>
+                      {countrySummary.NewRecovered.toLocaleString()}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          {/* <TablePagination /> */}
+        </div>
+      </StylesProvider>
     </>
   );
 };
