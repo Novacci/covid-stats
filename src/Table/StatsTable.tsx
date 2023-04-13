@@ -1,5 +1,7 @@
 import './StatsTable.scss';
 import {
+  TextField,
+  Typography,
   Table,
   TableContainer,
   TableHead,
@@ -11,6 +13,7 @@ import {
 } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/core/styles';
 import { useState } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
 interface CountrySummary {
   Country: string;
@@ -43,6 +46,11 @@ interface StatsTableProps {
 const StatsTable = (props: StatsTableProps) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [filter, setFilter] = useState('');
+
+  const inputSearchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilter(event.target.value);
+  };
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent> | null,
@@ -62,12 +70,27 @@ const StatsTable = (props: StatsTableProps) => {
     props.globalSummary,
     ...props.summaryArray,
   ];
+  const emptyRows =
+    rowsPerPage -
+    Math.min(rowsPerPage, props.summaryArray.length - page * rowsPerPage);
 
   return (
     <>
       <StylesProvider injectFirst>
         <div className="table-position">
           <TableContainer component={Paper}>
+            <div className="header">
+              <Typography className="table-title">Covid-19 Data</Typography>
+              <div className="search-container">
+                <SearchIcon className="search-icon" />
+                <TextField
+                  onChange={inputSearchHandler}
+                  id="standard-basic"
+                  label="Search"
+                  variant="standard"
+                />
+              </div>
+            </div>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow className="header-row">
@@ -83,7 +106,7 @@ const StatsTable = (props: StatsTableProps) => {
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell>{1}</TableCell>
+                  <TableCell>{''}</TableCell>
                   <TableCell>{'Global'}</TableCell>
                   <TableCell>
                     {props.globalSummary.TotalConfirmed.toLocaleString()}
@@ -105,10 +128,11 @@ const StatsTable = (props: StatsTableProps) => {
                   </TableCell>
                 </TableRow>
                 {props.summaryArray
+                  .filter((country) => country.Country.includes(filter))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((countrySummary, index) => (
                     <TableRow key={index}>
-                      <TableCell>{index + 1}</TableCell>
+                      <TableCell>{index + page * rowsPerPage + 1}</TableCell>
                       <TableCell>{countrySummary.Country}</TableCell>
                       <TableCell>
                         {countrySummary.TotalConfirmed.toLocaleString()}
@@ -130,6 +154,11 @@ const StatsTable = (props: StatsTableProps) => {
                       </TableCell>
                     </TableRow>
                   ))}
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: 53 * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
             <TablePagination

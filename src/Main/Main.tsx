@@ -1,10 +1,23 @@
 import './Main.scss';
 import { useEffect, useState } from 'react';
 import StatsTable from '../Table/StatsTable';
-
+interface CountrySummary {
+  Country: string;
+  CountryCode: string;
+  Date: string;
+  ID: string;
+  NewConfirmed: number;
+  NewDeaths: number;
+  NewRecovered: number;
+  Slug: string;
+  TotalConfirmed: number;
+  TotalDeaths: number;
+  TotalRecovered: number;
+}
 const Main = () => {
-  const [summaryArray, setSummaryArray] = useState([]);
+  const [summaryArray, setSummaryArray] = useState<CountrySummary[]>([]);
   const [globalSummary, setGlobalSummary] = useState({
+    Country: '',
     Date: '',
     NewConfirmed: 0,
     NewDeaths: 0,
