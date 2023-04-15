@@ -1,3 +1,17 @@
-body {
+:root {
+  // --background-color: #0a1929;
+  --background-color: #0a1929;
+  --font-color: white;
+}
+
+[data-theme='light'] {
+  --background-color: #f7f2f2;
+  --font-color: black;
+}
+
+.background-color {
   font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--background-color);
 }

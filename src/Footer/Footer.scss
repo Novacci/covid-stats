@@ -1,5 +1,15 @@
+@use '../App.scss';
+
+@font-face {
+  font-family: 'Silka';
+  src: url('../Fonts/Silka-Regular.otf');
+}
+
+$font-style: 'Silka';
+
 .footer-container {
+  font-family: $font-style;
   display: flex;
   justify-content: center;
-  color: white;
+  color: var(--font-color);
 }

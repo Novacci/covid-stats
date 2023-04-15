@@ -10,10 +10,14 @@ import {
   TableCell,
   Paper,
   TablePagination,
+  TableSortLabel,
+  ThemeProvider,
+  createTheme,
 } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/core/styles';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import { PropsOf } from '@emotion/react';
 
 interface CountrySummary {
   Country: string;
@@ -45,11 +49,30 @@ interface StatsTableProps {
 
 const StatsTable = (props: StatsTableProps) => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const [filter, setFilter] = useState('');
+  const [orderBy, setOrderBy] = useState<keyof CountrySummary>('Country');
+  const [order, setOrder] = useState<any>('asc');
+  // console.log(props.summaryArray);
 
+  const handleSort = (property: keyof CountrySummary) => (event: any) => {
+    console.log(property);
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+  };
+
+  const arraySort = (a: CountrySummary, b: CountrySummary) => {
+    if (order === 'asc') {
+      return a[orderBy] > b[orderBy] ? 1 : -1;
+    } else {
+      return a[orderBy] < b[orderBy] ? 1 : -1;
+    }
+  };
   const inputSearchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value);
+    setFilter(
+      event.target.value.charAt(0).toUpperCase() + event.target.value.slice(1)
+    );
   };
 
   const handleChangePage = (
@@ -74,6 +97,14 @@ const StatsTable = (props: StatsTableProps) => {
     rowsPerPage -
     Math.min(rowsPerPage, props.summaryArray.length - page * rowsPerPage);
 
+  // const tableTheme = createTheme({
+  //   palette: {
+  //     primary: {
+  //       main: '#90caf9',
+  //     },
+  //   },
+  // });
+
   return (
     <>
       <StylesProvider injectFirst>
@@ -85,6 +116,7 @@ const StatsTable = (props: StatsTableProps) => {
                 <SearchIcon className="search-icon" />
                 <TextField
                   onChange={inputSearchHandler}
+                  value={filter}
                   id="standard-basic"
                   label="Search"
                   variant="standard"
@@ -96,14 +128,63 @@ const StatsTable = (props: StatsTableProps) => {
                 <TableRow className="header-row">
                   <TableCell>#</TableCell>
                   <TableCell>Country/Global</TableCell>
-                  <TableCell>Total Cases</TableCell>
-                  <TableCell>New Cases</TableCell>
-                  <TableCell>Total Deaths</TableCell>
-                  <TableCell>New Deaths</TableCell>
-                  <TableCell>Total Recovered</TableCell>
-                  <TableCell>New Recovered</TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'TotalConfirmed'}
+                      direction={orderBy === 'TotalConfirmed' ? order : 'asc'}
+                      onClick={handleSort('TotalConfirmed')}
+                    >
+                      Total Cases
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'NewConfirmed'}
+                      direction={orderBy === 'NewConfirmed' ? order : 'asc'}
+                      onClick={handleSort('NewConfirmed')}
+                    >
+                      New Cases
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'TotalDeaths'}
+                      direction={orderBy === 'TotalDeaths' ? order : 'asc'}
+                      onClick={handleSort('TotalDeaths')}
+                    >
+                      Total Deaths
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'NewDeaths'}
+                      direction={orderBy === 'NewDeaths' ? order : 'asc'}
+                      onClick={handleSort('NewDeaths')}
+                    >
+                      New Deaths
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'TotalRecovered'}
+                      direction={orderBy === 'TotalRecovered' ? order : 'asc'}
+                      onClick={handleSort('TotalRecovered')}
+                    >
+                      Total Recovered
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'NewRecovered'}
+                      direction={orderBy === 'NewRecovered' ? order : 'asc'}
+                      onClick={handleSort('NewRecovered')}
+                    >
+                      New Recovered
+                    </TableSortLabel>
+                  </TableCell>
                 </TableRow>
               </TableHead>
+
               <TableBody>
                 <TableRow>
                   <TableCell>{''}</TableCell>
@@ -128,12 +209,15 @@ const StatsTable = (props: StatsTableProps) => {
                   </TableCell>
                 </TableRow>
                 {props.summaryArray
+                  .sort(arraySort)
                   .filter((country) => country.Country.includes(filter))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((countrySummary, index) => (
                     <TableRow key={index}>
                       <TableCell>{index + page * rowsPerPage + 1}</TableCell>
-                      <TableCell>{countrySummary.Country}</TableCell>
+                      <TableCell>
+                        {countrySummary.Country.toLocaleString()}
+                      </TableCell>
                       <TableCell>
                         {countrySummary.TotalConfirmed.toLocaleString()}
                       </TableCell>

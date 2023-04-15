@@ -48,6 +48,8 @@ const Main = () => {
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      console.log('Data fetching completed.');
     }
   };
 
