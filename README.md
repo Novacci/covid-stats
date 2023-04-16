@@ -1,4 +1,4 @@
-# About-Me
+# Covid-19 App
 
 [Live demo](https://novacci.github.io/covid-stats/)
 
