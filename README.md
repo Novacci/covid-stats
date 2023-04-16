@@ -36,6 +36,17 @@ I also added Table Pagination to make it easier for user to compare Data and it 
 ![image](https://user-images.githubusercontent.com/110100579/232341739-a4fdb1ec-4b94-486a-aa3f-29d1cb149b78.png)
 
 User can also choose how many rows should be displayed in the table.
-Sorting has been apllied in column's button headers and it allows user to sort data descending and Increasingly
+Sorting has been apllied in column's button headers and it allows user to sort data descending and ascending
 
 ![image](https://user-images.githubusercontent.com/110100579/232341836-98ef440c-aeea-48fc-bcc5-16a60a39893d.png)
+
+At the top of the website, there are highlighted informations about country that has got most of new cases, new deaths and recent recoverations
+
+![image](https://user-images.githubusercontent.com/110100579/232341999-835259d7-08a4-439d-b7c3-21873060df6e.png)
+
+By clicking on Country name in the widget, user is redirected to "google search" in new card so that he can get more information about country
+
+Website is fully responsive and works on all kind of devices. Example shown on iPhone 12 Pro below:
+
+![image](https://user-images.githubusercontent.com/110100579/232342068-1b8f45c3-f5f6-4815-80af-a22a2d5e8ee0.png)
+
