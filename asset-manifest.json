@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/covid-stats/static/css/main.cfd0925e.css",
+    "main.js": "/covid-stats/static/js/main.e01dd293.js",
+    "static/media/Silka-Regular.otf": "/covid-stats/static/media/Silka-Regular.48b22692f3aeb1643a04.otf",
+    "index.html": "/covid-stats/index.html",
+    "main.cfd0925e.css.map": "/covid-stats/static/css/main.cfd0925e.css.map",
+    "main.e01dd293.js.map": "/covid-stats/static/js/main.e01dd293.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cfd0925e.css",
+    "static/js/main.e01dd293.js"
+  ]
+}
