@@ -100,7 +100,7 @@ const StatsTable = (props: StatsTableProps) => {
         <div className="table-position">
           <TableContainer component={Paper}>
             <div className="header">
-              <Typography className="table-title">Covid-19 Data</Typography>
+              {/* <Typography className="table-title">Covid-19 Data</Typography> */}
               <div className="search-container">
                 <SearchIcon className="search-icon" />
                 <TextField

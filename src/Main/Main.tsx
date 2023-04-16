@@ -57,7 +57,7 @@ const Main = () => {
 
   return (
     <>
-      <Dashboard summaryArray={summaryArray} />
+      {summaryArray.length > 0 && <Dashboard summaryArray={summaryArray} />}
       <StatsTable summaryArray={summaryArray} globalSummary={globalSummary} />
     </>
   );
