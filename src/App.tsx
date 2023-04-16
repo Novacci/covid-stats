@@ -5,8 +5,10 @@ import Main from './Main/Main';
 import Footer from './Footer/Footer';
 import { useState } from 'react';
 
+type Theme = 'light' | 'dark';
+
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<Theme>('light');
 
   const toggleTheme = () => {
     setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));

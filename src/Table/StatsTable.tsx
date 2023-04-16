@@ -104,6 +104,12 @@ const StatsTable = (props: StatsTableProps) => {
               <div className="search-container">
                 <SearchIcon className="search-icon" />
                 <TextField
+                  InputLabelProps={{
+                    style: {
+                      color: 'var(--font-color)',
+                      borderBottomColor: 'orange',
+                    },
+                  }}
                   onChange={inputSearchHandler}
                   value={filter}
                   id="standard-basic"
@@ -112,7 +118,7 @@ const StatsTable = (props: StatsTableProps) => {
                 />
               </div>
             </div>
-            <Table aria-label="simple table">
+            <Table className="table" aria-label="simple table">
               <TableHead>
                 <TableRow className="header-row">
                   <TableCell>#</TableCell>

@@ -1,3 +1,5 @@
+@use '../App.scss';
+
 * {
   font-family: 'Silka';
 }
@@ -10,6 +12,16 @@
 .MuiTableContainer-root {
   width: 70%;
   box-shadow: var(--box-shadow);
+  color: var(--font-color);
+  table {
+    tbody {
+      tr {
+        td {
+          color: var(--font-color);
+        }
+      }
+    }
+  }
 }
 
 .table-position {
@@ -17,14 +29,15 @@
   justify-content: center;
 }
 
-.table-color {
-  background-color: red;
-  color: white;
-}
 .header-row {
   th {
     font-weight: bold;
+    color: var(--font-color);
   }
+}
+.table {
+  background-color: var(--container-background-color);
+  color: var(--font-color);
 }
 .header {
   width: 100%;
@@ -32,6 +45,7 @@
   display: flex;
   justify-content: flex-end;
   padding-left: 1rem;
+  background-color: var(--container-background-color);
 }
 
 .table-title {
@@ -48,4 +62,17 @@
 
 .search-icon {
   padding-right: 0.5rem;
+}
+
+.MuiToolbar-root {
+  background-color: var(--container-background-color);
+  color: var(--font-color);
+}
+
+.label {
+  color: red;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 2px solid var(--font-color);
 }
