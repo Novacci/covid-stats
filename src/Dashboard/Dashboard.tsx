@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import './Dashboard.scss';
 import { Widget } from '../Widget/Widget';
 

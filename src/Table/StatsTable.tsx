@@ -1,7 +1,6 @@
 import './StatsTable.scss';
 import {
   TextField,
-  Typography,
   Table,
   TableContainer,
   TableHead,
@@ -15,7 +14,6 @@ import {
 import { StylesProvider } from '@material-ui/core/styles';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import { PropsOf } from '@emotion/react';
 
 interface CountrySummary {
   Country: string;
@@ -100,7 +98,6 @@ const StatsTable = (props: StatsTableProps) => {
         <div className="table-position">
           <TableContainer component={Paper}>
             <div className="header">
-              {/* <Typography className="table-title">Covid-19 Data</Typography> */}
               <div className="search-container">
                 <SearchIcon className="search-icon" />
                 <TextField

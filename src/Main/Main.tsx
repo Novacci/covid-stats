@@ -1,4 +1,3 @@
-import './Main.scss';
 import { useEffect, useState } from 'react';
 import StatsTable from '../Table/StatsTable';
 import Dashboard from '../Dashboard/Dashboard';
