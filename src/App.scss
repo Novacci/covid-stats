@@ -1,16 +1,17 @@
 :root {
-  // --background-color: #0a1929;
   --background-color: #0a1929;
   --font-color: white;
   --box-shadow: 0 0 10px rgba(253, 253, 253, 0.5);
   --container-background-color: #001e3c;
+  --widget-background-color: #0a2947;
 }
 
 [data-theme='light'] {
   --background-color: #f7f2f2;
   --font-color: black;
-  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  --box-shadow: 0 0 10px rgba(67, 66, 66, 0.363);
   --container-background-color: white;
+  --widget-background-color: #e4cece;
 }
 
 .background-color {

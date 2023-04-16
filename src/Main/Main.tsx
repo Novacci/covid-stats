@@ -42,7 +42,6 @@ const Main = () => {
         },
       });
       const data = await response.json();
-      console.log(data);
 
       if (data) {
         setSummaryArray(data.Countries);

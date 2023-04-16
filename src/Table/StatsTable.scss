@@ -30,8 +30,7 @@
   width: 100%;
   height: 3.5rem;
   display: flex;
-
-  justify-content: center;
+  justify-content: flex-end;
   padding-left: 1rem;
 }
 
@@ -43,6 +42,8 @@
 .search-container {
   display: flex;
   align-items: flex-end;
+  padding: 8px;
+  margin-right: 32px;
 }
 
 .search-icon {

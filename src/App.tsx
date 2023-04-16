@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <div className="background-color " data-theme={theme}>
+      <div className="background-color" data-theme={theme}>
         <Header theme={theme} toggleTheme={() => toggleTheme()} />
         <Main />
 

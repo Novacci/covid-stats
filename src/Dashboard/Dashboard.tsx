@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Dashboard.scss';
+import { Widget } from '../Widget/Widget';
 
 interface CountrySummary {
   Country: string;
@@ -17,63 +18,41 @@ interface CountrySummary {
 interface summaryType {
   summaryArray: CountrySummary[];
 }
+
 const Dashboard = (props: summaryType) => {
-  const [mostCovidData, setMostCovidData] = useState<CountrySummary>({
-    Country: '',
-    CountryCode: '',
-    Date: '',
-    ID: '',
-    NewConfirmed: 0,
-    NewDeaths: 0,
-    NewRecovered: 0,
-    Slug: '',
-    TotalConfirmed: 0,
-    TotalDeaths: 0,
-    TotalRecovered: 0,
-  });
-  useEffect(() => {
-    const { summaryArray } = props;
-
-    const sortedData = summaryArray.sort(
-      (a: CountrySummary, b: CountrySummary) => b.NewConfirmed - a.NewConfirmed
-    );
-
-    const mostHighlightsData = sortedData[0];
-    // console.log(sortedData);
-    setMostCovidData(mostHighlightsData);
-  }, []);
+  const { summaryArray } = props;
+  const topNewConfirmed = summaryArray.sort(
+    (a: CountrySummary, b: CountrySummary) => b.NewConfirmed - a.NewConfirmed
+  )[0];
+  const topNewRecovered = summaryArray.sort(
+    (a: CountrySummary, b: CountrySummary) => b.NewRecovered - a.NewRecovered
+  )[0];
+  const topNewDeaths = summaryArray.sort(
+    (a: CountrySummary, b: CountrySummary) => b.NewDeaths - a.NewDeaths
+  )[0];
 
   return (
     <>
       <div className="space-container">
-        <div className="dash-position">
-          <div className="dash-container">
-            {`Most new infected in: `}
-            <div className="country-style">{mostCovidData.Country}</div>
-            <div className="number-style">{mostCovidData.NewConfirmed}</div>
-            <img
-              src={`flags/${mostCovidData.CountryCode.toLowerCase()}.png`}
-              alt="Flag icon"
-            />
-          </div>
-          <div className="dash-container">
-            {`Most recent deaths in: `}
-            <div className="country-style">{mostCovidData.Country}</div>
-            <div className="number-style">{mostCovidData.NewDeaths}</div>
-            <img
-              src={`flags/${mostCovidData.CountryCode.toLowerCase()}.png`}
-              alt="Flag icon"
-            />
-          </div>
-          <div className="dash-container">
-            {`Most recoveries in: `}
-            <div className="country-style">{mostCovidData.Country}</div>
-            <div className="number-style">{mostCovidData.NewRecovered}</div>
-            <img
-              src={`flags/${mostCovidData.CountryCode.toLowerCase()}.png`}
-              alt="Flag icon"
-            />
-          </div>
+        <div className="dash-container">
+          <Widget
+            label="Most new infected"
+            country={topNewConfirmed.Country}
+            value={topNewConfirmed.NewConfirmed}
+            flag={topNewConfirmed.CountryCode.toLowerCase()}
+          />
+          <Widget
+            label="Most recent deaths"
+            country={topNewDeaths.Country}
+            value={topNewDeaths.NewDeaths}
+            flag={topNewDeaths.CountryCode.toLowerCase()}
+          />
+          <Widget
+            label="Most recoveries"
+            country={topNewRecovered.Country}
+            value={topNewRecovered.NewRecovered}
+            flag={topNewRecovered.CountryCode.toLowerCase()}
+          />
         </div>
       </div>
     </>
