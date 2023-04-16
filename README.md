@@ -1,6 +1,6 @@
 # About-Me
 
-[Live demo]([https://novacci.pl/](https://novacci.github.io/covid-stats/))
+[Live demo](https://novacci.github.io/covid-stats/)
 
 "Covid-stats" is App created to display information about pandemic. 
 It was created with usage of Typescript, React, Scss and Material UI.
