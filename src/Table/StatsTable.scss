@@ -1,5 +1,15 @@
+* {
+  font-family: 'Silka';
+}
+
+@font-face {
+  font-family: 'Silka';
+  src: url('../Fonts/Silka-Regular.otf');
+}
+
 .MuiTableContainer-root {
   width: 70%;
+  box-shadow: var(--box-shadow);
 }
 
 .table-position {

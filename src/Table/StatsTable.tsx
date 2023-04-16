@@ -53,7 +53,6 @@ const StatsTable = (props: StatsTableProps) => {
   const [filter, setFilter] = useState('');
   const [orderBy, setOrderBy] = useState<keyof CountrySummary>('Country');
   const [order, setOrder] = useState<any>('asc');
-  // console.log(props.summaryArray);
 
   const handleSort = (property: keyof CountrySummary) => (event: any) => {
     console.log(property);

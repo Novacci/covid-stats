@@ -1,6 +1,8 @@
 import './Main.scss';
 import { useEffect, useState } from 'react';
 import StatsTable from '../Table/StatsTable';
+import Dashboard from '../Dashboard/Dashboard';
+
 interface CountrySummary {
   Country: string;
   CountryCode: string;
@@ -55,6 +57,7 @@ const Main = () => {
 
   return (
     <>
+      <Dashboard summaryArray={summaryArray} />
       <StatsTable summaryArray={summaryArray} globalSummary={globalSummary} />
     </>
   );

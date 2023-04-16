@@ -1,0 +1,32 @@
+@use '../App.scss';
+@font-face {
+  font-family: 'Silka';
+  src: url('../Fonts/Silka-Regular.otf');
+}
+
+$font-style: 'Silka';
+
+.dash-position {
+  display: flex;
+
+  justify-content: space-between;
+  width: 70%;
+}
+
+.dash-container {
+  margin-bottom: 1rem;
+  background-color: var(--container-background-color);
+  color: var(--font-color);
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 15rem;
+  height: 15rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.space-container {
+  display: flex;
+  justify-content: center;
+}
