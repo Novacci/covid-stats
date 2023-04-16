@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# About-Me
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live demo]([https://novacci.pl/](https://novacci.github.io/covid-stats/))
 
-## Available Scripts
+"Covid-stats" is App created to display information about pandemic. 
+It was created with usage of Typescript, React, Scss and Material UI.
 
-In the project directory, you can run:
+## Getting started
 
-### `npm start`
+### Project setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+git clone https://github.com/Novacci/covid-stats.git
+cd covid-stats
+npm install
+npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Description & Screenshots
 
-### `npm test`
+Application has been created with help of modern web-development tools like: React, SCSS, Typescript and Material UI. Thanks to all of that it provides great user 
+experience, so that data can be seen clearly with ability of sorting and filtering.
+The project has two available themes: dark and light.
+Light Mode (default):
+![image](https://user-images.githubusercontent.com/110100579/232341396-050bc71e-6630-4c31-a273-2d8361468560.png)
+Dark Mode: 
+![image](https://user-images.githubusercontent.com/110100579/232341433-e74a7f98-ca03-469f-85f0-c0839d45ce1d.png)
+Filtering Feature enables user to get information about country that he search for:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/110100579/232341601-18248fe6-23c0-48ac-ad9c-5810b5ca5086.png)
 
-### `npm run build`
+For better user experience, first letter is always transformed to "UpperCase" so that user does not have to remember about doing it. It makes filtering function 
+working properly.
+I also added Table Pagination to make it easier for user to compare Data and it looks better too.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/110100579/232341739-a4fdb1ec-4b94-486a-aa3f-29d1cb149b78.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User can also choose how many rows should be displayed in the table.
+Sorting has been apllied in column's button headers and it allows user to sort data descending and ascending
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/110100579/232341836-98ef440c-aeea-48fc-bcc5-16a60a39893d.png)
 
-### `npm run eject`
+At the top of the website, there are highlighted informations about country that has got most of new cases, new deaths and recent recoverations
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/110100579/232341999-835259d7-08a4-439d-b7c3-21873060df6e.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+By clicking on Country name in the widget, user is redirected to "google search" in new card so that he can get more information about country
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Website is fully responsive and works on all kind of devices. Example shown on iPhone 12 Pro below:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![image](https://user-images.githubusercontent.com/110100579/232342068-1b8f45c3-f5f6-4815-80af-a22a2d5e8ee0.png)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
