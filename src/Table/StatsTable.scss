@@ -33,6 +33,18 @@
   th {
     font-weight: bold;
     color: var(--font-color);
+    span:active {
+      color: var(--font-color);
+    }
+    span:hover {
+      color: var(--font-color);
+    }
+  }
+}
+.MuiTableSortLabel-root.MuiTableSortLabel-active {
+  color: var(--font-color);
+  svg {
+    color: var(--font-color) !important;
   }
 }
 .table {

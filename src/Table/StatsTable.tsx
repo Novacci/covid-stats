@@ -104,7 +104,11 @@ const StatsTable = (props: StatsTableProps) => {
                   InputLabelProps={{
                     style: {
                       color: 'var(--font-color)',
-                      borderBottomColor: 'orange',
+                    },
+                  }}
+                  InputProps={{
+                    style: {
+                      color: 'var(--font-color)',
                     },
                   }}
                   onChange={inputSearchHandler}
