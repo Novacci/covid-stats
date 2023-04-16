@@ -2,7 +2,7 @@
 
 [Live demo](https://novacci.github.io/covid-stats/)
 
-"Covid-stats" is App created to display information about pandemic. 
+"Covid-stats" is an app created to display information about pandemic. 
 It was created with usage of Typescript, React, Scss and Material UI.
 
 ## Getting started
@@ -18,7 +18,7 @@ npm start
 
 ## Description & Screenshots
 
-Application has been created with help of modern web-development tools like: React, SCSS, Typescript and Material UI. Thanks to all of that it provides great user 
+Application has been created with the help of modern web-development tools like: React, SCSS, Typescript and Material UI. Thanks to all of that it provides great user 
 experience, so that data can be seen clearly with ability of sorting and filtering.
 The project has two available themes: dark and light.
 Light Mode (default):
@@ -29,7 +29,7 @@ Filtering Feature enables user to get information about country that he search f
 
 ![image](https://user-images.githubusercontent.com/110100579/232341601-18248fe6-23c0-48ac-ad9c-5810b5ca5086.png)
 
-For better user experience, first letter is always transformed to "UpperCase" so that user does not have to remember about doing it. It makes filtering function 
+For better user experience, first letter is always transformed to uppercase so that user does not have to remember about doing it. It makes filtering function 
 working properly.
 I also added Table Pagination to make it easier for user to compare Data and it looks better too.
 
