@@ -24,7 +24,8 @@
 .number-style {
   text-align: center;
   color: red;
-  &:hover {
-    opacity: 0.5;
-  }
+}
+
+a {
+  text-decoration: none;
 }

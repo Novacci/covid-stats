@@ -12,7 +12,9 @@ export const Widget = (props: WidgetProps) => {
   return (
     <div className="widget">
       {label}
-      <span className="country-style">{country}</span>
+      <a target="_blank" href={`https://www.google.com/search?q=${country}`}>
+        <span className="country-style">{country}</span>
+      </a>
       <span className="number-style">{value}</span>
       <img src={`flags/${flag}.png`} alt="Flag icon" />
     </div>
