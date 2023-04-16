@@ -11,8 +11,6 @@ import {
   Paper,
   TablePagination,
   TableSortLabel,
-  ThemeProvider,
-  createTheme,
 } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/core/styles';
 import { useState } from 'react';
@@ -95,14 +93,6 @@ const StatsTable = (props: StatsTableProps) => {
   const emptyRows =
     rowsPerPage -
     Math.min(rowsPerPage, props.summaryArray.length - page * rowsPerPage);
-
-  // const tableTheme = createTheme({
-  //   palette: {
-  //     primary: {
-  //       main: '#90caf9',
-  //     },
-  //   },
-  // });
 
   return (
     <>

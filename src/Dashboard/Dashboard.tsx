@@ -46,12 +46,17 @@ const Dashboard = (props: summaryType) => {
     <>
       <div className="space-container">
         <div className="dash-position">
-          <div className="dash-container">{`Most new Covid-19 infected in ${mostCovidData.Country}`}</div>
           <div className="dash-container">
-            {`Most recent deaths by Covid-19 in ${mostCovidData.Country}`}
+            {`Most new Covid-19 infected in: ${mostCovidData.Country}`}
+            <div>{mostCovidData.NewConfirmed}</div>
           </div>
           <div className="dash-container">
-            {`The largest number of recent recoveries from Covid-19 in ${mostCovidData.Country}`}
+            {`Most recent deaths by Covid-19 in: ${mostCovidData.Country}`}
+            <div>{mostCovidData.NewDeaths}</div>
+          </div>
+          <div className="dash-container">
+            {`The largest number of recent recoveries from Covid-19 in: ${mostCovidData.Country}`}
+            <div>{mostCovidData.NewRecovered}</div>
           </div>
         </div>
       </div>

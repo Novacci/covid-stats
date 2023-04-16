@@ -9,6 +9,8 @@ $font-style: 'Silka';
 
 .footer-container {
   font-family: $font-style;
+  font-weight: bold;
+
   display: flex;
   justify-content: center;
   color: var(--font-color);
